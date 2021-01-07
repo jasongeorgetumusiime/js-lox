@@ -1,8 +1,11 @@
 import { readFile } from 'fs';
 import { createInterface } from 'readline'
 
-const run = (source) => {
+var hadError = false;
 
+const run = (source) => {
+  const tokens = [...source]
+  console.log(tokens);
 } 
 
 const runFile = (scriptPath) => {
@@ -17,6 +20,7 @@ const recursiveEval = function (rl) {
     if (line == 'exit')
       return rl.close();
     run(line)
+    hadError = false;
     recursiveEval(rl);
   });
 };
@@ -32,9 +36,19 @@ const runPrompt = () => {
 export const main = (args) => {
   if(args.length > 2) {
     console.log("Usage: js-lox [script]")
+    process.exit(65)
   } else if (args.length == 1) {
     runFile(args[0])
   } else {
     runPrompt()
   }
 }
+
+const report = (line, where, message) => {
+  console.error(`[line ${line}] Error ${where}: ${message}`);
+  hadError = true;
+}
+
+const error = (line, message) => {
+  report(line, "", message)
+} 
