@@ -1,0 +1,26 @@
+{
+  "name": "js-lox",
+  "version": "1.0.0",
+  "description": "JS implementation of lox language",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lox",
+    "craftingintepreters"
+  ],
+  "author": "Jason George Tumusiime",
+  "license": "MIT",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "yargs": "^16.2.0"
+  },
+  "bin": {
+    "@jasongeorgetumusiime/js-lox": "bin/js-lox",
+    "js-lox": "bin/js-lox"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
