@@ -1,7 +1,7 @@
 import { readFile } from 'fs';
 import { createInterface } from 'readline'
 
-var hadError = false;
+var hadError = false; // need to remove these global variables
 
 const run = (source) => {
   const tokens = [...source]
